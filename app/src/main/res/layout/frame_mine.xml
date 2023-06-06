@@ -75,7 +75,6 @@
                     android:id="@+id/sexText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:textSize="20dp"
                     android:layout_weight="7"/>
 
@@ -98,7 +97,6 @@
                     android:id="@+id/ageText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:textSize="20dp"
                     android:layout_weight="7"/>
 
@@ -106,7 +104,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -117,10 +115,9 @@
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/interestText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="" />
+                    android:layout_height="70dp" />
 
 
             </LinearLayout>
@@ -155,31 +152,11 @@
 
     </LinearLayout>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="371dp" />
-
+<!--    本来想写个环保记录的，实在是不想写了，-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/changeRecord"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/LawnGreen"
-            android:layout_weight="1"
-            android:text="更改记录" />
-
-        <Button
-            android:id="@+id/deleteAllRecord"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/TomatoRed"
-            android:textColor="@color/white"
-            android:text="删除所有记录" />
 
     </LinearLayout>
 

@@ -43,19 +43,6 @@ public class InformationInput extends AppCompatActivity {
             }
         });
 
-//      点击此按钮拍照
-        photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, PICK_IMAGE);
-//                谷歌的代码
-//                Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-//                if (intent.resolveActivity(getPackageManager()) != null) {
-//                    startActivityForResult(intent, PICK_IMAGE);
-//                }
-            }
-        });
 
         ensure.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +58,7 @@ public class InformationInput extends AppCompatActivity {
                 intent.putExtra("sex",valSex);
                 intent.putExtra("age",ageStr);
                 intent.putExtra("hobby",hobbyStr);
-                setResult(RESULT_CODE,intent);
+                setResult(22,intent);
                 finish();
             }
         });
@@ -82,11 +69,9 @@ public class InformationInput extends AppCompatActivity {
 
     public void initLayout(){
         name=findViewById(R.id.editTextTextPersonName);
-        age=findViewById(R.id.editTextTextPersonName);
+        age=findViewById(R.id.editTextPersonAge);
         hobby=findViewById(R.id.editTextTextPersonHobby);
         ensure=findViewById(R.id.button);
         sexCheck=findViewById(R.id.radioGroupSex);
-        photo=findViewById(R.id.photo);
-        imageView=findViewById(R.id.imageViewPhoto);
     }
 }

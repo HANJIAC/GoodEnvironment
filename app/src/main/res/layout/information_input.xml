@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:text=""
             android:layout_weight="1"
             tools:layout_editor_absoluteY="22dp"
             tools:ignore="MissingConstraints" />
@@ -59,14 +59,14 @@
             tools:ignore="InvalidId">
 
             <CheckBox
-                android:id="@+id/checkBoxMan"
+                android:id="@+id/Man"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:text="男" />
 
             <CheckBox
-                android:id="@+id/checkBoxWoman"
+                android:id="@+id/Woman"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -126,29 +126,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageViewPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Button
-            android:id="@+id/photo"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="点这里上传头像" />
+            android:text="" />
 
 
     </LinearLayout>
