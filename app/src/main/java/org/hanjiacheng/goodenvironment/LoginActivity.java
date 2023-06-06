@@ -1,9 +1,11 @@
 package org.hanjiacheng.goodenvironment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton,regButton;
 
     private SQLiteDatabase database;
+
+    public static String myVariable,myVariable2;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,9 @@ public class LoginActivity extends AppCompatActivity {
                 Cursor cursor = database.query("user", columns, selection, selectionArgs,
                         null, null, null);
                 if (cursor.moveToFirst()) {
+                    // 将用户名写入myVariable
+                myVariable = usernameEditText.getText().toString();
+                myVariable2 = passwordEditText.getText().toString();
                     // 如果输入正确，跳转到MainActivity
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
@@ -66,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+//
                 Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
             }

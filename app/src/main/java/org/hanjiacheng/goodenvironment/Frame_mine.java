@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 public class Frame_mine extends Fragment {
 
-    private TextView nameText,sexText,ageText, hobbyText;
+    private TextView nameText,sexText,ageText, hobbyText, usernameT,passwordT;
     private Button changeInfo,delInfo,changeRec,delAllRec;
 
     private int USER_INFO_REQUEST_CODE =11;
@@ -32,7 +32,11 @@ public class Frame_mine extends Fragment {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         View view= inflater.inflate(R.layout.frame_mine,null);
         initLayout(view);
-
+        String username1=LoginActivity.myVariable;
+        String password=LoginActivity.myVariable2;
+        Log.i("username",username1);
+        usernameT.setText(username1);
+        passwordT.setText(password);
 
 
 //todo 无法接收从输入页面传递来的信息，可能是先加载了页面，可以试试换成onCreate()方法
@@ -60,35 +64,35 @@ public class Frame_mine extends Fragment {
 //        initLayout(view);
 
 
-        changeInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Todo 跳转到信息输入页面
-                Intent intent=new Intent(getActivity(),InformationInput.class);
-                startActivityForResult(intent, 11);
-                Log.i("button","xiugaigerenxinxi----------");
-            }
-        });
-
-        delInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Todo 清空名片中的所有的个人信息
-                nameText.setText("");
-                sexText.setText("");
-                ageText.setText("");
-                hobbyText.setText("");
-            }
-        });
-        Intent intentGet=new Intent();
-        onActivityResult(11,22,intentGet);
-        System.out.println(nameStr+"-"+valSex+"-"+ageStr+"-"+hobbyStr);
-//        Log.i("onCreatViewInfo",valSex+"1");
-//        在输入的界面输入的信息将会在这里显示
-        nameText.setText(nameStr);
-        sexText.setText(valSex);
-        ageText.setText(ageStr);
-        hobbyText.setText(hobbyStr);
+//        changeInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Todo 跳转到信息输入页面
+//                Intent intent=new Intent(getActivity(),InformationInput.class);
+//                startActivityForResult(intent, 11);
+//                Log.i("button","xiugaigerenxinxi----------");
+//            }
+//        });
+//
+//        delInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Todo 清空名片中的所有的个人信息
+//                nameText.setText("");
+//                sexText.setText("");
+//                ageText.setText("");
+//                hobbyText.setText("");
+//            }
+//        });
+//        Intent intentGet=new Intent();
+//        onActivityResult(11,22,intentGet);
+//        System.out.println(nameStr+"-"+valSex+"-"+ageStr+"-"+hobbyStr);
+////        Log.i("onCreatViewInfo",valSex+"1");
+////        在输入的界面输入的信息将会在这里显示
+//        nameText.setText(nameStr);
+//        sexText.setText(valSex);
+//        ageText.setText(ageStr);
+//        hobbyText.setText(hobbyStr);
 
     }
 
@@ -123,12 +127,14 @@ public class Frame_mine extends Fragment {
     }
 
     public void initLayout(View view){
-        nameText=view.findViewById(R.id.nameText);
-        sexText=view.findViewById(R.id.sexText);
-        ageText=view.findViewById(R.id.ageText);
-        hobbyText =view.findViewById(R.id.interestText);
-        changeInfo=view.findViewById(R.id.changeInfo);
-        delInfo=view.findViewById(R.id.deleteInfo);
+//        nameText=view.findViewById(R.id.nameText);
+//        sexText=view.findViewById(R.id.sexText);
+//        ageText=view.findViewById(R.id.ageText);
+//        hobbyText =view.findViewById(R.id.interestText);
+//        changeInfo=view.findViewById(R.id.changeInfo);
+//        delInfo=view.findViewById(R.id.deleteInfo);
+        usernameT =view.findViewById(R.id.textView4);
+        passwordT=view.findViewById(R.id.textView7);
 //        本来想写一个记录自己环保记录的过程，但是数据库操作已经体现在登录和注册上了
 //        changeRec=view.findViewById(R.id.changeRecord);
 //        delAllRec=view.findViewById(R.id.deleteAllRecord);
