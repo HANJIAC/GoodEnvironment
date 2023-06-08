@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private SQLiteDatabase database;
 
     public static String myVariable,myVariable2;
+    public static int id;
     private SharedPreferences mSharedPreferences;
 
     @Override
@@ -59,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                     // 将用户名写入myVariable
                 myVariable = usernameEditText.getText().toString();
                 myVariable2 = passwordEditText.getText().toString();
+                id=cursor.getInt(cursor.getColumnIndex("id"));
                     // 如果输入正确，跳转到MainActivity
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);

@@ -1,7 +1,11 @@
 package org.hanjiacheng.goodenvironment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Fragment;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,13 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 public class Frame_mine extends Fragment {
 
     private TextView nameText,sexText,ageText, hobbyText, usernameT,passwordT;
-    private Button changeInfo,delInfo,changeRec,delAllRec;
+    private Button changePassword;
 
     private int USER_INFO_REQUEST_CODE =11;
 
@@ -24,6 +29,8 @@ public class Frame_mine extends Fragment {
     private String hobbyStr="";
     private String ageStr="";
     private String all="";
+
+    private SQLiteDatabase database;
 
 
     @Nullable
@@ -36,7 +43,6 @@ public class Frame_mine extends Fragment {
         String password=LoginActivity.myVariable2;
         Log.i("username",username1);
         usernameT.setText(username1);
-        passwordT.setText(password);
 
 
 //todo 无法接收从输入页面传递来的信息，可能是先加载了页面，可以试试换成onCreate()方法
@@ -105,6 +111,24 @@ public class Frame_mine extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // 打开或创建数据库
+        database =getActivity().openOrCreateDatabase("my_db",MODE_PRIVATE, null);
+//          修改密码的提交按钮监听
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username=LoginActivity.myVariable;
+                int uid=LoginActivity.id;
+                String id=String.valueOf(uid);
+                String newPassword=passwordT.getText().toString();
+                ContentValues contentValues=new ContentValues();
+                contentValues.put("password",newPassword);
+                int i=database.update("user",contentValues,"id=?",new String[]{id});
+                if (i==1){
+                    Toast.makeText(getActivity(),"成功修改",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
 
 
@@ -127,6 +151,12 @@ public class Frame_mine extends Fragment {
     }
 
     public void initLayout(View view){
+
+/*        我本来想写一个个人名片，但是由于碎片当中在onCreateView中不能写按钮监听，写了也不生效，
+          只能写在onActivityCreated里面，但是这样返回这个页面时界面不刷新，值传递回来也不能显示/(ㄒoㄒ)/~~
+          无奈忍痛放弃(T_T)
+ */
+
 //        nameText=view.findViewById(R.id.nameText);
 //        sexText=view.findViewById(R.id.sexText);
 //        ageText=view.findViewById(R.id.ageText);
@@ -134,7 +164,8 @@ public class Frame_mine extends Fragment {
 //        changeInfo=view.findViewById(R.id.changeInfo);
 //        delInfo=view.findViewById(R.id.deleteInfo);
         usernameT =view.findViewById(R.id.textView4);
-        passwordT=view.findViewById(R.id.textView7);
+        passwordT=view.findViewById(R.id.editTextTextPassword2);
+        changePassword=view.findViewById(R.id.button);
 //        本来想写一个记录自己环保记录的过程，但是数据库操作已经体现在登录和注册上了
 //        changeRec=view.findViewById(R.id.changeRecord);
 //        delAllRec=view.findViewById(R.id.deleteAllRecord);
@@ -149,6 +180,16 @@ public class Frame_mine extends Fragment {
             hobbyStr=data.getStringExtra("hobby");
             ageStr=data.getStringExtra("age");
 
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // 关闭数据库
+        if (database != null) {
+            database.close();
         }
     }
 
