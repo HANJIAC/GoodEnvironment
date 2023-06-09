@@ -20,8 +20,6 @@ CODE BY HANJIACHENG
    \ \_______\ \_______\ \_______\ \_______\       \ \_______\__/  / /
     \|_______|\|_______|\|_______|\|_______|        \|_______|\___/ /
                                                              \|___|/
-
-
  ___  ___  ________  ________         ___  ___  ________  ________  ___  ___  _______   ________   ________
 |\  \|\  \|\   __  \|\   ___  \      |\  \|\  \|\   __  \|\   ____\|\  \|\  \|\  ___ \ |\   ___  \|\   ____\
 \ \  \\\  \ \  \|\  \ \  \\ \  \     \ \  \ \  \ \  \|\  \ \  \___|\ \  \\\  \ \   __/|\ \  \\ \  \ \  \___|
@@ -48,10 +46,6 @@ public class MainActivity extends AppCompatActivity {
         mine.setOnClickListener(myListener);
         news.setOnClickListener(myListener);
         manager = getFragmentManager();
-//        ft = manager.beginTransaction();
-//        ft.replace(R.id.frame, new Frame_news());
-//        ft.commit();//每次事务提交一次，把自己销毁
-//        news.setImageResource(R.drawable.newschecked);
     }
 
     void initImage(){

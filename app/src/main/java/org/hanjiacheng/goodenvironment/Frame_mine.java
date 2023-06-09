@@ -132,7 +132,9 @@ public class Frame_mine extends Fragment {
 
 
 
-
+/*
+环保记录这个功能我给删了
+ */
 
 //        changeRec.setOnClickListener(new View.OnClickListener() {
 //            @Override

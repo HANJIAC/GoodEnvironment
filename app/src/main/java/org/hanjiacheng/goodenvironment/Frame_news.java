@@ -42,7 +42,8 @@ public class Frame_news extends Fragment implements AdapterView.OnItemClickListe
 //        跳转用的网址
         uriString=new String[]{"http://finance.people.com.cn/n1/2023/0525/c1004-32694458.html","http://env.people.com.cn/n1/2023/0524/c1010-32693116.html",
                 "http://env.people.com.cn/n1/2023/0523/c1010-32692209.html","http://env.people.com.cn/n1/2023/0523/c1010-32692210.html",
-                "http://env.people.com.cn/n1/2023/0523/c1010-32692211.html","http://finance.people.com.cn/n1/2023/0523/c1004-32692180.html"};
+                "http://env.people.com.cn/n1/2023/0523/c1010-32692211.html","http://finance.people.com.cn/n1/2023/0523/c1004-32692180.html",
+                "https://www.hbzhan.com/news/detail/162689.html","https://www.hbzhan.com/news/detail/162715.html"};
         adapter=new SimpleAdapter(getActivity(),getData(),R.layout.news_item,new String[]{"picture","title","date"},new int[]{R.id.newsPhoto,R.id.title,R.id.data});
         lv.setAdapter(adapter);
 
@@ -84,7 +85,17 @@ public class Frame_news extends Fragment implements AdapterView.OnItemClickListe
         map6.put("title" ,"长江禁渔，亮出“强基础”成绩单");
         map6.put("date","2023/5/25");
 
-        data.add(map1);data.add(map2);data.add(map3);data.add(map4);data.add(map5);data.add(map6);
+        Map<String,Object> map7=new HashMap<>();
+        map7.put("picture" ,R.drawable.chouyang);
+        map7.put("title" ,"开始征集！快来申报国家鼓励发展的重大环保技术装备");
+        map7.put("date","2023/5/25");
+
+        Map<String,Object> map8=new HashMap<>();
+        map8.put("picture" ,R.drawable.turang);
+        map8.put("title" ,"变废为宝，龙净环保首个煤矸石综合整治项目加速推进");
+        map8.put("date","2023/6/09");
+
+        data.add(map1);data.add(map2);data.add(map3);data.add(map4);data.add(map5);data.add(map6);data.add(map7);data.add(map8);
         return  data;
     }
 
